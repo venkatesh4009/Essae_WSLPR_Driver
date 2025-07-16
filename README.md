@@ -176,6 +176,14 @@ The following commands are parsed by the server and sent to the scale over `/dev
 
 ---
 
+## 📎 Notes
+
+* Use `sqlitebrowser SQL_LFT_Files.db` to browse label templates
+* Ensure both server and client are in the same network or localhost
+* GUI will disable actions unless connected to TCP server on port `8888`
+
+---
+
 👨‍💼 Author
 
 Developed by:
@@ -183,13 +191,5 @@ Developed by:
 Venkatesh M – venkatesh.muninagaraju@essae.com
 
 Embedded System Engineer
-
----
-
-## 📎 Notes
-
-* Use `sqlitebrowser SQL_LFT_Files.db` to browse label templates
-* Ensure both server and client are in the same network or localhost
-* GUI will disable actions unless connected to TCP server on port `8888`
 
 ---
