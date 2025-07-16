@@ -2,9 +2,7 @@
 This project contains a user-space Linux driver for the Essae Weighing Scale and Label Printer, developed for RK3568-based embedded platforms. It includes a C-based TCP server and a Python PyQt5-based GUI client for label printing and weighing tasks.
 
 📦 Project Structure
-graphql
-Copy
-Edit
+
 Essae_WSLPR_Driver_Code/
 ├── Essae_WSLPR_server.c       # C server code (compiles to Essae_WSLPR_server)
 ├── Essae_WSLPR_client.py      # Python GUI to communicate with the server
@@ -24,9 +22,7 @@ libsqlite3-dev
 
 Install via:
 
-bash
-Copy
-Edit
+
 sudo apt update
 sudo apt install build-essential libjson-c-dev libsqlite3-dev
 Client (Python GUI)
@@ -38,33 +34,21 @@ SQLite browser (optional)
 
 Install via:
 
-bash
-Copy
-Edit
 sudo apt install python3 python3-pyqt5 sqlitebrowser
 pip3 install PyQt5
 🔧 Build & Run
 1. Build the Server
-bash
-Copy
-Edit
+
 gcc Essae_WSLPR_server.c -o Essae_WSLPR_server -ljson-c -lsqlite3 -lm
 2. Run Server (CLI mode)
-bash
-Copy
-Edit
+
 ./Essae_WSLPR_server config.json demo.LFT
 3. Run as TCP Server (port 8888)
-bash
-Copy
-Edit
+
 ./Essae_WSLPR_server
 🔁 Run as a Service
 Create systemd service file:
 
-ini
-Copy
-Edit
 # /etc/systemd/system/essae_server.service
 [Unit]
 Description=Essae WSLPR TCP Server
@@ -80,22 +64,15 @@ User=essae
 WantedBy=multi-user.target
 Enable and start:
 
-bash
-Copy
-Edit
 sudo systemctl daemon-reload
 sudo systemctl enable essae_server.service
 sudo systemctl start essae_server.service
 📌 You can check logs:
 
-bash
-Copy
-Edit
+
 journalctl -u essae_server.service --no-pager
 🖥️ Run the GUI Client
-bash
-Copy
-Edit
+
 python3 Essae_WSLPR_client.py
 GUI Features:
 
@@ -133,25 +110,18 @@ See full documentation in docs/ or inside this repo.
 The server listens on TCP port 8888. It supports 2 modes:
 
 Printer Mode:
-text
-Copy
-Edit
 MODE:PRINTER
 <json_path>
 <slot_number>
 <barcode_id 1-99>
+
 Scale Mode:
-text
-Copy
-Edit
 MODE:WEIGHT
 RD_WEIGHT
 🗃️ Label Template Storage
 Templates are saved in SQL_LFT_Files.db:
 
-sql
-Copy
-Edit
+
 CREATE TABLE lft_files (
   slot INTEGER PRIMARY KEY,
   name TEXT UNIQUE,
@@ -159,9 +129,7 @@ CREATE TABLE lft_files (
 );
 View/edit with:
 
-bash
-Copy
-Edit
+
 sqlitebrowser SQL_LFT_Files.db
 ✅ Tested Features
 ✅ Label prints via .LFT + config.json
@@ -174,5 +142,5 @@ sqlitebrowser SQL_LFT_Files.db
 
 ✅ Service auto-start via systemd
 
-🧑‍💻 Author & Contact
+🧑‍💻 Author
 Developed By: Venkatesh M (Essae-Teraoka)
