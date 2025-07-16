@@ -77,6 +77,50 @@ python3 Essae_WSLPR_client.py
 
 ---
 
+## ⚖️ Weighing Scale Commands
+
+The following commands are parsed by the server and sent to the scale over `/dev/ttyS4`:
+
+| Command         | Description                     | ASCII/Hex Value |
+| --------------- | ------------------------------- | --------------- |
+| RD\_WEIGHT      | Reads current weight            | 0x05            |
+| XC\_TARE        | Send tare command               | 'T' / 't'       |
+| XC\_REZERO      | Zero the scale                  | 0x10            |
+| XC\_SON         | Enter calibration mode          | 0x12            |
+| XC\_KEYCALxxxxx | Set calibration weight in grams | 0x13            |
+| XC\_CALZERO     | Perform calibration zero        | 0x14            |
+| XC\_CALSPAN     | Perform calibration span        | 0x15            |
+| XC\_CALIBRATE   | Finalize calibration            | 0x16            |
+| XC\_RDRAWCT     | Read raw count from scale       | 0x11            |
+| XC\_RESTART     | Restart the scale               | 0x1C            |
+| RD\_TECHSPEC    | Read technical specification    | 0x19            |
+| WR\_TECHSPEC    | Write technical specification   | 0x18            |
+| RD\_CUSSPEC     | Read custom configuration       | 0x1B            |
+| WR\_CUSSPEC     | Write custom configuration      | 0x1A            |
+
+---
+
+
+## 📜 LFT Label Format Commands
+
+The `.LFT` files sent to the printer contain commands like:
+
+| Command | Description                   |
+| ------- | ----------------------------- |
+| `~S`    | Set label size                |
+| `~T`    | Fixed text                    |
+| `~V`    | Variable text from JSON       |
+| `~B`    | Barcode from JSON             |
+| `~d`    | Bitmap image                  |
+| `~R`    | Draw rectangle                |
+| `~C`    | Draw circle                   |
+| `~I`    | Set print intensity (100–140) |
+| `~P`    | Print label                   |
+
+💡 For full label syntax: Refer to `Label Report Description Language R2` (PDF/manual).
+
+----
+
 ## 🖥 GUI Features
 
 * 📂 Add/Edit/Delete `.LFT` label files to SQLite
@@ -119,49 +163,6 @@ MODE:PRINTER
 MODE:WEIGHT
 RD_WEIGHT
 ```
-
----
-
-## 📜 LFT Label Format Commands
-
-The `.LFT` files sent to the printer contain commands like:
-
-| Command | Description                   |
-| ------- | ----------------------------- |
-| `~S`    | Set label size                |
-| `~T`    | Fixed text                    |
-| `~V`    | Variable text from JSON       |
-| `~B`    | Barcode from JSON             |
-| `~d`    | Bitmap image                  |
-| `~R`    | Draw rectangle                |
-| `~C`    | Draw circle                   |
-| `~I`    | Set print intensity (100–140) |
-| `~P`    | Print label                   |
-
-💡 For full label syntax: Refer to `Label Report Description Language R2` (PDF/manual).
-
----
-
-## ⚖️ Weighing Scale Commands
-
-The following commands are parsed by the server and sent to the scale over `/dev/ttyS4`:
-
-| Command         | Description                     | ASCII/Hex Value |
-| --------------- | ------------------------------- | --------------- |
-| RD\_WEIGHT      | Reads current weight            | 0x05            |
-| XC\_TARE        | Send tare command               | 'T' / 't'       |
-| XC\_REZERO      | Zero the scale                  | 0x10            |
-| XC\_SON         | Enter calibration mode          | 0x12            |
-| XC\_KEYCALxxxxx | Set calibration weight in grams | 0x13            |
-| XC\_CALZERO     | Perform calibration zero        | 0x14            |
-| XC\_CALSPAN     | Perform calibration span        | 0x15            |
-| XC\_CALIBRATE   | Finalize calibration            | 0x16            |
-| XC\_RDRAWCT     | Read raw count from scale       | 0x11            |
-| XC\_RESTART     | Restart the scale               | 0x1C            |
-| RD\_TECHSPEC    | Read technical specification    | 0x19            |
-| WR\_TECHSPEC    | Write technical specification   | 0x18            |
-| RD\_CUSSPEC     | Read custom configuration       | 0x1B            |
-| WR\_CUSSPEC     | Write custom configuration      | 0x1A            |
 
 ---
 
