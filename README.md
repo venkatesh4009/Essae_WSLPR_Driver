@@ -176,9 +176,13 @@ The following commands are parsed by the server and sent to the scale over `/dev
 
 ---
 
-## 👨‍💼 Author
+👨‍💼 Author
 
-Developed By: Venkatesh M (Essae-Teraoka)
+Developed by:
+
+Venkatesh M – venkatesh.muninagaraju@essae.com
+
+Embedded System Engineer
 
 ---
 
