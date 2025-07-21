@@ -30,8 +30,8 @@ Essae_WSLPR_Driver_Code/
 Install:
 
 ```bash
-sudo apt update
-sudo apt install build-essential libjson-c-dev libsqlite3-dev
+$ sudo apt update
+$ sudo apt install build-essential libjson-c-dev libsqlite3-dev
 ```
 
 ### 💻 Client (Python GUI)
@@ -43,8 +43,8 @@ sudo apt install build-essential libjson-c-dev libsqlite3-dev
 Install:
 
 ```bash
-sudo apt install python3 python3-pyqt5 sqlitebrowser
-pip3 install PyQt5
+$ sudo apt install python3 python3-pyqt5 sqlitebrowser
+$ pip3 install PyQt5
 ```
 
 ---
@@ -54,25 +54,25 @@ pip3 install PyQt5
 ### 1. Build the server
 
 ```bash
-gcc Essae_WSLPR_server.c -o Essae_WSLPR_server -ljson-c -lsqlite3 -lm
+$ gcc Essae_WSLPR_server.c -o Essae_WSLPR_server -ljson-c -lsqlite3 -lm
 ```
 
 ### 2. Run the server in CLI mode
 
 ```bash
-./Essae_WSLPR_server config.json demo.LFT
+$ ./Essae_WSLPR_server config.json demo.LFT
 ```
 
 ### 3. Run the server in TCP mode (port 8888)
 
 ```bash
-./Essae_WSLPR_server
+$ ./Essae_WSLPR_server
 ```
 
 ### 4. Run the GUI client
 
 ```bash
-python3 Essae_WSLPR_client.py
+$ python3 Essae_WSLPR_client.py
 ```
 
 ---
