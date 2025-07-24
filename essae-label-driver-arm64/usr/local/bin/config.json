@@ -1,0 +1,106 @@
+{
+ "data": {
+  "plu_id":              "1234567890",          // 1  – PLU No
+  "plu_name":            "GREEN MANGOO",             // 2  – PLU Name
+  "plu_code":            "0005900000006",      // 3  – PLU Code
+  "guom":                "PCS",                 // 4  – GUOM (Unit)
+  "uom":                 "kg",                 // 94 – Unit of Measure – e.g., KG, PCS
+  "unit_price":          "12.0",                // 5  – Unit Price
+  "spl_up":              "14.33",               // 6  – Special Unit Price
+  "quantity":            "1",                     // 7  – Quantity
+  "tare_wt":             "0.15",                  // 8  – Tare Weight
+  "fixed_price":         "0.0",                   // 9  – Fixed Price
+  "packed_date":         "08-07-25",            // 10 – Packed Date
+  "packed_time":         "10:30",               // 11 – Packed Time
+  "sellby_date":         "02-02-26",            // 12 – Sell By Date
+  "sellby_time":         "18:00",               // 13 – Sell By Time
+  "useby_date":          "19-03-26",            // 14 – Use By Date
+  "useby_time":          "23:59",               // 15 – Use By Time
+
+  "plu_minimum":         "5",                     // 16 – PLU Minimum
+  "plu_target":          "8",                     // 17 – PLU Target
+  "plu_maximum":         "15",                    // 18 – PLU Maximum
+  "group_no":            "3",                     // 19 – Group No
+  "group_name":          "Fruits",              // 20 – Group Name
+  "department_no":       "1",                     // 21 – Department No
+  "department_name":     "Food",                // 22 – Department Name
+  "tax_no":              "7",                     // 23 – Tax No
+  "tax_name":            "GST",                 // 24 – Tax Name
+  "tax_type":            "Inclusive",           // 25 – Tax Type
+  "tax_rate":            "5.0",                   // 26 – Tax Rate
+  "operator_no":         "2",                     // 27 – Operator No
+  "operator_name":       "Admin",               // 28 – Operator Name
+  "operator_password":   "pass123",             // 29 – Operator Password
+
+  "header1":             "RELIANCE FRESH",          // 30 – Header1
+  "header2":             "Address",             // 31 – Header2
+  "header3":             "City",                // 32 – Header3
+  "header4":             "State",               // 33 – Header4
+  "header5":             "Zip",                 // 34 – Header5
+  "footer1":             "Thank you",           // 35 – Footer1
+  "footer2":             "Visit Again",         // 36 – Footer2
+  "footer3":             "Contact Info",        // 37 – Footer3
+  "footer4":             "Support",             // 38 – Footer4
+  "footer5":             "Website",             // 39 – Footer5
+  "discount_no":         "1",                     // 40 – Discount No
+
+  "discount_name":       "Promo 1",             // 41 – Discount Name
+  "discount_type":       "Flat",                // 42 – Discount Type
+  "discount_first_target": "200.0",               // 43 – Discount First Target
+  "discount_first_value":  "20.0",                // 44 – Discount First Value
+  "discount_second_target": "500.0",              // 45 – Discount Second Target
+  "discount_second_value":  "50.0",               // 46 – Discount Second Value
+  "discount_days":       "Mon-Sun",             // 47 – Discount Days
+  "discount_start":      "09:00",               // 48 – Discount Start Date/Time
+  "discount_end":        "21:00",               // 49 – Discount End Date/Time
+  "package_type":        "Box",                 // 50 – Package Type
+  "tare_name":           "Tray",                // 51 – Tare Name
+  "tare_value":          "0.05",                  // 52 – Tare Value
+  "storage_temp":        "4-6C",                // 53 – Storage Temperature
+  "barcode_name":        "Apple Code",          // 54 – Barcode Name
+  "barcode_type":        "EAN13",               // 55 – Barcode Type
+  "barcode_data":        "8901234567890",       // 56 – Barcode Data
+  "bc_field1":           "A1",                  // 57 – Barcode Field 1
+  "bc_field1_con":       "-",                   // 58 – Barcode Field 1 Constant
+  "bc_field1_shift":     "LEFT",                // 59 – Barcode Field 1 Shift
+  "bc_field2":           "B2",                  // 60 – Barcode Field 2
+
+  "bc_field2_con":       "/",                   // 61 – Barcode Field 2 Constant
+  "bc_field2_shift":     "RIGHT",               // 62 – Barcode Field 2 Shift
+  "ingredient_no":       "006",                   // 63 – Ingredient No
+  "ingredient_name": 	 "Salt, Sugar,\n Spices\nPreservatives, Additives",   // 64 – Ingredient Name (2 lines)
+  "ingredients_text":    "Ing L1-Essae lulu\nIng L2-Essae lulu\nIng L3-Essae lulu", // 65 – this is multiline
+  "message_no": 	 "07",                       // 66 – Message No
+  "message_name": 	 "New Product Launch\nIntroductory Offer",  // 67 – Message Name (2 lines)
+
+  "message_text": 	  "Buy 1 Get 1 Free",        // 68 – Message Text
+  "current_net_weight":  "0.5",                   // 69 – Current Net Weight
+  "current_tare_weight": "0.05",                  // 70 – Current Tare Weight
+  "current_gross_weight":"0.55",                  // 71 – Current Gross Weight
+  "weight_or_quantity":  "4",                   // 72 – Weight or Quantity
+  "actual_unit_price":   "399.0",                // 73 – Actual Unit Price
+  "image_no":            "1",                     // 74 – Image No
+  "image_file_name":     "IMAGE01.BIT",         // 75 – Image File Name
+  "label_date_time":     "2025-05-15 10:30:00", // 76 – Label DateTime
+  "label_design_no":     "2",                     // 77 – Label Design No
+  "label_file_name":     "LABEL01.LFT",         // 78 – Label File Name
+  "bill_no":             "12345",                 // 79 – Bill No
+  "scale_no":            "Scale-1",             // 80 – Scale No
+
+  "scale_name":          "Scale Model XYZ",     // 81 – Scale Name
+  "scale_capacity":      "30",                    // 82 – Scale Capacity
+  "scale_accuracy":      "0.01",                  // 83 – Scale Accuracy
+  "current_datetime":    "2025-05-15 10:30:00", // 84 – Current DateTime
+  "no_of_items":         "5",                     // 85 – No of Items
+  "total_amount":        "256.75",                // 86 – Total Amount
+  "total_quantity":      "10",                    // 87 – Total Quantity
+  "total_weight":        "9.75",                  // 88 – Total Weight
+  "total_qty_or_weight": "10",                    // 89 – Total Qty/Weight
+  "total_tax":           "18.50",                 // 90 – Total Tax
+  "total_discount":      "5.25",                  // 91 – Total Discount
+  "today_bill_no":       "123",                   // 92 – Today’s Bill No
+  "total_price":         "166.00",                // 93 – Total Price
+  "barcode_flag":        "21054",        	  // 95 – Barcode Flag
+  "bill_text":           "Paid by Credit Card",  // 96 – Bill Text
+},
+}
