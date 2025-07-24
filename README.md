@@ -96,12 +96,18 @@ Architecture Support: Cross-compiled for ARM64 using gcc-aarch64-linux-gnu
 ### 📁 Branch Information
 This is the official v2.0 release, available in:
 
-## 🟦 Branch: label-weighing-driver-v2.0
+🟦 Branch: label-weighing-driver-v2.0
 
 ---
 
-### 📧 Contact
-Developed by: venkatesh.muninagaraju@essae.com
+👨‍💼 Author
+
+Developed by:
+
+Venkatesh M – venkatesh.muninagaraju@essae.com
+
+Embedded System Engineer
+
 Essae Label Driver - Version 2.0
 
 ---
