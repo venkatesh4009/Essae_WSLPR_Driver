@@ -62,20 +62,20 @@ sudo apt install ./essae-label-driver-arm64.deb
 ### 🗂️ Files are installed at:
 
 ```bash
-/usr/local/bin/Essae_WSLPR_client_v2.0.py
-
-/usr/local/bin/Essae_WSLPR_server_v2.0
-
-/usr/share/applications/EssaeLabelClient.desktop
-
-/usr/share/pixmaps/essae_logo.png
+$ /usr/local/bin/Essae_WSLPR_client_v2.0.py
+$ /usr/local/bin/Essae_WSLPR_server_v2.0
+$ /usr/share/applications/EssaeLabelClient.desktop
+$ /usr/share/pixmaps/essae_logo.png
 ```
 
-### ▶️ Start/Stop Driver Manually
+### ▶️ Enable/Disable Driver Manually
 ```bash
+$ sudo systemctl enable essae-label-driver
 $ sudo systemctl start essae-label-driver
 $ sudo systemctl stop essae-label-driver
 $ sudo systemctl status essae-label-driver
+$ sudo systemctl disable essae-label-driver
+
 ```
 ### 🔄 Uninstallation
 To remove the driver completely:
@@ -96,10 +96,12 @@ Architecture Support: Cross-compiled for ARM64 using gcc-aarch64-linux-gnu
 ### 📁 Branch Information
 This is the official v2.0 release, available in:
 
-🟦 Branch: label-weighing-driver-v2.0
+## 🟦 Branch: label-weighing-driver-v2.0
+
 ---
----
+
 ### 📧 Contact
 Developed by: venkatesh.muninagaraju@essae.com
 Essae Label Driver - Version 2.0
+
 ---
