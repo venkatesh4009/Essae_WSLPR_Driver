@@ -83,7 +83,6 @@ To remove the driver completely:
 $ sudo apt remove essae-label-driver
 ```
 
-### 📦 Developer Info
 ---
 GUI: PyQt5 based
 
