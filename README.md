@@ -40,23 +40,28 @@ All required packages are handled during `.deb` installation:
 ### 🔹 For **AMD64** (PC/Ubuntu Desktop):
 
 ```bash
-wget https://github.com/venkatesh4009/essae-label-weighing-driver/raw/label-weighing-driver-v2.0/essae-label-driver-amd64.deb
-sudo apt install ./essae-label-driver-amd64.deb
-🔹 For ARM64 (RK3568 or similar):
-bash
-Copy
-Edit
+$ wget https://github.com/venkatesh4009/essae-label-weighing-driver/raw/label-weighing-driver-v2.0/essae-label-driver-amd64.deb
+$ sudo apt install ./essae-label-driver-amd64.deb
+```
+
+### 🔹 For ARM64 (RK3568 or similar):
+```bash
 wget https://github.com/venkatesh4009/essae-label-weighing-driver/raw/label-weighing-driver-v2.0/essae-label-driver-arm64.deb
 sudo apt install ./essae-label-driver-arm64.deb
-🚀 After Installation
+```
+
+### 🚀 After Installation
+```bash
 ✅ GUI shortcut available in Applications menu
 → Essae Label Printer GUI
 
 ✅ Service automatically starts at boot
 → essae-label-driver.service (systemd)
+```
 
-🗂️ Files are installed at:
+### 🗂️ Files are installed at:
 
+```bash
 /usr/local/bin/Essae_WSLPR_client_v2.0.py
 
 /usr/local/bin/Essae_WSLPR_server_v2.0
@@ -64,22 +69,22 @@ sudo apt install ./essae-label-driver-arm64.deb
 /usr/share/applications/EssaeLabelClient.desktop
 
 /usr/share/pixmaps/essae_logo.png
+```
 
-▶️ Start/Stop Driver Manually
-bash
-Copy
-Edit
-sudo systemctl start essae-label-driver
-sudo systemctl stop essae-label-driver
-sudo systemctl status essae-label-driver
-🔄 Uninstallation
+### ▶️ Start/Stop Driver Manually
+```bash
+$ sudo systemctl start essae-label-driver
+$ sudo systemctl stop essae-label-driver
+$ sudo systemctl status essae-label-driver
+```
+### 🔄 Uninstallation
 To remove the driver completely:
+```bash
+$ sudo apt remove essae-label-driver
+```
 
-bash
-Copy
-Edit
-sudo apt remove essae-label-driver
-📦 Developer Info
+### 📦 Developer Info
+---
 GUI: PyQt5 based
 
 Service: C-based backend for USB printer communication
@@ -88,13 +93,13 @@ Label Format: Supports .LFT label format with ~T, ~V, ~B, ~d commands
 
 Architecture Support: Cross-compiled for ARM64 using gcc-aarch64-linux-gnu
 
-📁 Branch Information
+### 📁 Branch Information
 This is the official v2.0 release, available in:
 
 🟦 Branch: label-weighing-driver-v2.0
-
-📧 Contact
-Maintainer: venkatesh.muninagaraju@essae.com
-
-Essae Technical Team, 2025
+---
+---
+### 📧 Contact
+Developed by: venkatesh.muninagaraju@essae.com
 Essae Label Driver - Version 2.0
+---
