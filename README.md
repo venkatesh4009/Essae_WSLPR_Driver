@@ -84,20 +84,6 @@ $ sudo apt remove essae-label-driver
 ```
 
 ---
-GUI: PyQt5 based
-
-Service: C-based backend for USB printer communication
-
-Label Format: Supports .LFT label format with ~T, ~V, ~B, ~d commands
-
-Architecture Support: Cross-compiled for ARM64 using gcc-aarch64-linux-gnu
-
-### 📁 Branch Information
-This is the official v2.0 release, available in:
-
-🟦 Branch: label-weighing-driver-v2.0
-
----
 
 👨‍💼 Author
 
