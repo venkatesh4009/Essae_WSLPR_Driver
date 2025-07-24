@@ -1,196 +1,100 @@
-# 💾 Essae Weighing Scale & Label Printer – User Space Driver (RK3568)
+# 🖨️ Essae Label Weighing Driver v2.0
 
-This project contains a user-space Linux driver for the **Essae Weighing Scale** and **Label Printer**, developed for **RK3568-based embedded platforms**. It includes a **C-based TCP server** and a **Python PyQt5-based GUI client** for label printing and weighing tasks.
-
----
-
-## 📦 Project Structure
-
-```text
-Essae_WSLPR_Driver_Code/
-├── Essae_WSLPR_server.c       # C TCP server (builds to Essae_WSLPR_server)
-├── Essae_WSLPR_client.py      # Python PyQt5 GUI client
-├── config.json                # Sample product data
-├── SQL_LFT_Files.db           # SQLite DB to store .LFT templates
-├── *.LFT                      # Sample label template files
-└── README.md                  # This documentation
-```
+This repository contains the complete **user-space driver**, **GUI**, and **Debian installation packages** (`.deb`) for **Essae Label Weighing Scale with Label Printer**. This version supports both **AMD64 (PC/Desktop)** and **ARM64 (RK3568/ARM boards)** platforms.
 
 ---
 
-## ⚙️ Requirements
+## 📂 Contents
 
-### 🖥 Server (C Code)
+- `essae-label-driver-amd64.deb` – Debian package for 64-bit PC (Ubuntu 20.04+)
+- `essae-label-driver-arm64.deb` – Debian package for ARM64-based boards
+- `Essae_WSLPR_client_v2.0.py` – Python GUI client for label design and print
+- `Essae_WSLPR_server_v2.0` – C binary service to communicate with printer
+- `essae_logo.png` – Icon for GUI launcher
+- Systemd service for auto-start
+- `.desktop` entry for easy desktop launch
 
-* Ubuntu 22.04+
-* GCC
-* JSON-C
-* SQLite3
+---
 
-Install:
+## ✅ Supported Platforms
+
+| Platform         | Architecture | Status      |
+|------------------|--------------|-------------|
+| Ubuntu 20.04+    | amd64        | ✅ Tested   |
+| Ubuntu 20.04+    | arm64        | ✅ Tested   |
+
+---
+
+## 🔧 Dependencies
+
+All required packages are handled during `.deb` installation:
+- `python3`
+- `python3-pyqt5`
+- `libsqlite3-0`
+- `libjson-c5`
+
+---
+
+## 💾 Installation (Recommended)
+
+### 🔹 For **AMD64** (PC/Ubuntu Desktop):
 
 ```bash
-$ sudo apt update
-$ sudo apt install build-essential libjson-c-dev libsqlite3-dev
-```
+wget https://github.com/venkatesh4009/essae-label-weighing-driver/raw/label-weighing-driver-v2.0/essae-label-driver-amd64.deb
+sudo apt install ./essae-label-driver-amd64.deb
+🔹 For ARM64 (RK3568 or similar):
+bash
+Copy
+Edit
+wget https://github.com/venkatesh4009/essae-label-weighing-driver/raw/label-weighing-driver-v2.0/essae-label-driver-arm64.deb
+sudo apt install ./essae-label-driver-arm64.deb
+🚀 After Installation
+✅ GUI shortcut available in Applications menu
+→ Essae Label Printer GUI
 
-### 💻 Client (Python GUI)
+✅ Service automatically starts at boot
+→ essae-label-driver.service (systemd)
 
-* Python 3
-* PyQt5
-* SQLite browser (optional for DB viewing)
+🗂️ Files are installed at:
 
-Install:
+/usr/local/bin/Essae_WSLPR_client_v2.0.py
 
-```bash
-$ sudo apt install python3 python3-pyqt5 sqlitebrowser
-$ pip3 install PyQt5
-```
+/usr/local/bin/Essae_WSLPR_server_v2.0
 
----
+/usr/share/applications/EssaeLabelClient.desktop
 
-## 🔧 Build & Run
+/usr/share/pixmaps/essae_logo.png
 
-### 1. Build the server
+▶️ Start/Stop Driver Manually
+bash
+Copy
+Edit
+sudo systemctl start essae-label-driver
+sudo systemctl stop essae-label-driver
+sudo systemctl status essae-label-driver
+🔄 Uninstallation
+To remove the driver completely:
 
-```bash
-$ gcc Essae_WSLPR_server.c -o Essae_WSLPR_server -ljson-c -lsqlite3 -lm
-```
+bash
+Copy
+Edit
+sudo apt remove essae-label-driver
+📦 Developer Info
+GUI: PyQt5 based
 
-### 2. Run the server in CLI mode
+Service: C-based backend for USB printer communication
 
-```bash
-$ ./Essae_WSLPR_server config.json demo.LFT
-```
+Label Format: Supports .LFT label format with ~T, ~V, ~B, ~d commands
 
-### 3. Run the server in TCP mode (port 8888)
+Architecture Support: Cross-compiled for ARM64 using gcc-aarch64-linux-gnu
 
-```bash
-$ ./Essae_WSLPR_server
-```
+📁 Branch Information
+This is the official v2.0 release, available in:
 
-### 4. Run the GUI client
+🟦 Branch: label-weighing-driver-v2.0
 
-```bash
-$ python3 Essae_WSLPR_client.py
-```
+📧 Contact
+Maintainer: venkatesh.muninagaraju@essae.com
 
----
-
-## ⚖️ Weighing Scale Commands
-
-The following commands are parsed by the server and sent to the scale over `/dev/ttyS4`:
-
-| Command         | Description                     | ASCII/Hex Value |
-| --------------- | ------------------------------- | --------------- |
-| RD\_WEIGHT      | Reads current weight            | 0x05            |
-| XC\_TARE        | Send tare command               | 'T' / 't'       |
-| XC\_REZERO      | Zero the scale                  | 0x10            |
-| XC\_SON         | Enter calibration mode          | 0x12            |
-| XC\_KEYCALxxxxx | Set calibration weight in grams | 0x13            |
-| XC\_CALZERO     | Perform calibration zero        | 0x14            |
-| XC\_CALSPAN     | Perform calibration span        | 0x15            |
-| XC\_CALIBRATE   | Finalize calibration            | 0x16            |
-| XC\_RDRAWCT     | Read raw count from scale       | 0x11            |
-| XC\_RESTART     | Restart the scale               | 0x1C            |
-| RD\_TECHSPEC    | Read technical specification    | 0x19            |
-| WR\_TECHSPEC    | Write technical specification   | 0x18            |
-| RD\_CUSSPEC     | Read custom configuration       | 0x1B            |
-| WR\_CUSSPEC     | Write custom configuration      | 0x1A            |
-
----
-
-
-## 📜 LFT Label Format Commands
-
-The `.LFT` files sent to the printer contain commands like:
-
-| Command | Description                   |
-| ------- | ----------------------------- |
-| `~S`    | Set label size                |
-| `~T`    | Fixed text                    |
-| `~V`    | Variable text from JSON       |
-| `~B`    | Barcode from JSON             |
-| `~d`    | Bitmap image                  |
-| `~R`    | Draw rectangle                |
-| `~C`    | Draw circle                   |
-| `~I`    | Set print intensity (100–140) |
-| `~P`    | Print label                   |
-
-💡 For full label syntax: Refer to `Label Report Description Language R2` (PDF/manual).
-
-----
-
-## 🖥 GUI Features
-
-* 📂 Add/Edit/Delete `.LFT` label files to SQLite
-* 🔢 Select barcode data (1–99) from JSON
-* 📨 Print label via TCP
-* ⚖️ Scale operations:
-
-  * Read weight
-  * Tare / Zero / Restart
-  * Full calibration workflow
-  * Read/write technical & custom specs
-* 📋 Logs and responses displayed in tabs
-
-📂 Uses `SQL_LFT_Files.db` with the following schema:
-
-```sql
-CREATE TABLE lft_files (
-  slot INTEGER PRIMARY KEY,
-  name TEXT UNIQUE,
-  content BLOB
-);
-```
-
----
-
-## 🔄 Communication Protocol (Port 8888)
-
-### 📦 Printer Mode
-
-```text
-MODE:PRINTER
-/path/to/config.json
-<lft_slot_number>
-<barcode_entry_number>
-```
-
-### ⚖️ Scale Mode
-
-```text
-MODE:WEIGHT
-RD_WEIGHT
-```
-
----
-
-## ✅ Tested Features
-
-* ✅ Prints labels using `.LFT` + `config.json`
-* ✅ Barcode entry selection (1–99)
-* ✅ Weighing scale reads + calibration
-* ✅ TCP communication with client & server
-* ✅ SQLite-based template storage
-* ✅ PyQt5 GUI with connection/status logging
-
----
-
-## 📎 Notes
-
-* Use `sqlitebrowser SQL_LFT_Files.db` to browse label templates
-* Ensure both server and client are in the same network or localhost
-* GUI will disable actions unless connected to TCP server on port `8888`
-
----
-
-👨‍💼 Author
-
-Developed by:
-
-Venkatesh M – venkatesh.muninagaraju@essae.com
-
-Embedded System Engineer
-
----
+Essae Technical Team, 2025
+Essae Label Driver - Version 2.0
